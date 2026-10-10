@@ -1,0 +1,11 @@
+[project]
+name = "workbuddy-auto-signin"
+version = "1.0.0"
+description = "WorkBuddy 每日自动签到领积分（不忙脚本盒子版）"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+dependencies = []
+
+[tool.uv]
+package = false

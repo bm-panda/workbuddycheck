@@ -1,0 +1,43 @@
+[bmscriptsbox]
+
+[bmscriptsbox.info]
+id = "1d714272-65b3-4887-bc21-dc36957f6ee1"
+name = "WorkBuddy签到"
+desc = "WorkBuddy 每日自动签到领积分脚本 | 成长中心全自动(旅行礼物/Buddy任务/补登/连登兑换/盲盒),可视化一键运行"
+version = "1.0.0"
+icon = "./imgs/workbuddy.png"
+
+[bmscriptsbox.runtime]
+language = "python"
+language_version = ">=3.8"
+entry = "main.py"
+terminal = "always"
+
+[bmscriptsbox.schedule]
+enabled = true
+
+[bmscriptsbox.params_form]
+enabled = true
+
+[[bmscriptsbox.params]]
+name = "mode"
+label = "运行模式"
+type = "str"
+default = "auto"
+choices = ["auto", "growth", "status", "doctor", "claim", "all"]
+choice_labels = { auto = "签到+成长中心", growth = "仅成长中心", status = "仅查签到状态", doctor = "离线检查凭据", claim = "仅领取签到", all = "状态+领取" }
+description = "本次运行执行的操作：auto 为签到并打理成长中心，status/doctor 用于调试"
+
+[[bmscriptsbox.params]]
+name = "budget_seconds"
+label = "时间预算(秒)"
+type = "int"
+default = 0
+description = "单次运行网络请求时间预算；0 表示使用脚本内置默认（签到 420 秒 / 轮询 180 秒），须小于定时任务时限"
+
+[[bmscriptsbox.params]]
+name = "auth_file"
+label = "凭据文件路径"
+type = "str"
+default = ""
+description = "自动探测失败时，手动指定 workbuddy-desktop.info 的完整路径（对应环境变量 WORKBUDDY_AUTH_FILE）"
